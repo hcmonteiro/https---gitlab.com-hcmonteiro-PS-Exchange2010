@@ -1,0 +1,28 @@
+The Test-ExchangeServerHealth.ps1 PowerShell script will perform a series of tests against an Exchange Server 2010 or 2013 organization and produce a health report.
+
+Tests include:
+
+    General server health/uptime
+    Status of Exchange services
+    Transport queues and mail flow
+    Mailbox database status
+    Database Availability Group health 
+
+The results are output to a HTML file or email that provides a summary and color-coded details of the results of each test.
+
+For email reports make sure you modify the SMTP settings in the script:
+
+ 
+PowerShell
+
+#................................... 
+# Modify these Email Settings 
+#................................... 
+ 
+$smtpsettings = @{ 
+    To =  "administrator@exchangeserverpro.net" 
+    From = "exchangeserver@exchangeserverpro.net" 
+    Subject = "$reportemailsubject - $now" 
+    SmtpServer = "smtp.exchangeserverpro.net" 
+    }
+
